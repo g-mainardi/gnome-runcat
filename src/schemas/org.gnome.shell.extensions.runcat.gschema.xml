@@ -6,10 +6,21 @@
 		<value value="2" nick="character-only" />
 	</enum>
 
+	<enum id="org.gnome.shell.extensions.runcat.Character">
+		<value value="0" nick="cat" />
+		<value value="1" nick="dog" />
+		<value value="2" nick="monkey" />
+	</enum>
+
 	<schema
 		id="org.gnome.shell.extensions.runcat"
 		path="/org/gnome/shell/extensions/runcat/"
 	>
+
+		<key name="character" enum="org.gnome.shell.extensions.runcat.Character">
+			<default>'cat'</default>
+			<summary>Character</summary>
+		</key>
 
 		<key type="i" name="idle-threshold">
 			<default>0</default>
