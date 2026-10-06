@@ -1,4 +1,5 @@
 import type {
+	Character,
 	DisplayingItemNick,
 	DisplayingItems,
 	RunCatIndicatorReactiveProperties,
@@ -15,7 +16,11 @@ export const displayingItemNickToValue: Record<DisplayingItemNick, DisplayingIte
 	'character-only': { character: true, percentage: false },
 } as const
 
+// MUST USE THE SAME ORDER AS org.gnome.shell.extensions.runcat.Character
+export const CHARACTERS: Character[] = ['cat', 'dog', 'monkey']
+
 export const SettingsSchemaKeys = {
+	CHARACTER: 'character',
 	IDLE_THRESHOLD: 'idle-threshold',
 	DISPLAYING_ITEMS: 'displaying-items',
 	INVERT_SPEED: 'invert-speed',
@@ -27,6 +32,7 @@ export const SettingsSchemaKeys = {
 } as const
 
 export const ReactiveProperties = {
+	CHARACTER: 'character',
 	CPU_USAGE: 'cpuUsage',
 	CURRENT_SPRITE_FRAME: 'currentSpriteFrame',
 	DISPLAYING_ITEMS: 'displayingItems',

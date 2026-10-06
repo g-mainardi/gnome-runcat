@@ -8,7 +8,10 @@ export type DisplayingItemNick = 'character-and-percentage' | 'percentage-only' 
 
 export type CharacterState = 'idle' | 'active'
 
+export type Character = 'cat' | 'dog' | 'monkey'
+
 export interface RunCatIndicatorReactiveProperties {
+	character: Character
 	cpuUsage: number
 	currentSpriteFrame: Gio.Icon
 	displayingItems: DisplayingItems

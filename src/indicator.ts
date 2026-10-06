@@ -11,6 +11,7 @@ import { type PopupMenu, PopupSeparatorMenuItem } from 'resource:///org/gnome/sh
 import { type Extension, gettext as _ } from 'resource:///org/gnome/shell/extensions/extension.js'
 
 import {
+	CHARACTERS,
 	LOG_PREFIX,
 	SYSTEM_MONITOR_COMMAND,
 	displayingItemNickToValue,
@@ -24,6 +25,7 @@ import { formatNumber, getSpritesPack } from './utils.js'
 import createCpuGenerator, { MAX_CPU_UTILIZATION } from './dataProviders/cpu.js'
 
 import type {
+	Character,
 	DisplayingItems,
 	CharacterState,
 	RunCatIndicatorReactiveProperties,
@@ -36,6 +38,7 @@ import type {
 export default class RunCatIndicator extends PanelMenu.Button implements RunCatIndicatorReactiveProperties {
 	declare menu: PopupMenu
 
+	declare character: Character
 	declare idleThreshold: number
 	declare displayingItems: DisplayingItems
 	declare isSpeedInverted: boolean
@@ -47,6 +50,14 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 	static {
 		GObject.registerClass({
 			Properties: {
+				character: GObject.ParamSpec.string(
+					'character',
+					'Character',
+					'Which character runs in the panel',
+					GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT,
+					'cat',
+				) as GObject.ParamSpec<Character>,
+
 				cpuUsage: GObject.ParamSpec.float(
 					'cpuUsage',
 					'CPU usage',
@@ -97,7 +108,7 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 	extension: Extension
 	settings: Gio.Settings
 
-	sprites: Record<CharacterState, Gio.Icon[]>
+	sprites: Record<Character, Record<CharacterState, Gio.Icon[]>>
 
 	animationTimeoutId: number | null = null
 	refreshDataTimeoutId!: number
@@ -109,7 +120,9 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 		this.extension = extension
 		this.settings = extension.getSettings()
 
-		this.sprites = getSpritesPack(this.extension.path)
+		this.sprites = Object.fromEntries(
+			CHARACTERS.map(character => [character, getSpritesPack(this.extension.path, character)]),
+		) as Record<Character, Record<CharacterState, Gio.Icon[]>>
 
 		this.initSettingsListeners()
 		this.initDataRefreshSource()
@@ -125,7 +138,7 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 	}
 
 	get frames(): Gio.Icon[] {
-		return this.sprites[this.characterState]
+		return this.sprites[this.character][this.characterState]
 	}
 
 	get systemMonitorCommand() {
@@ -267,6 +280,7 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 		}
 
 		for (const prop of [
+			ReactiveProperties.CHARACTER,
 			ReactiveProperties.CPU_USAGE,
 			ReactiveProperties.IS_SPEED_INVERTED,
 			ReactiveProperties.IDLE_THRESHOLD,
@@ -276,7 +290,9 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 			this.connect(
 				`notify::${prop}`,
 				() => updateAnimationState(
-					!this.isAnimationSmoothingEnabled || prop === ReactiveProperties.IS_SPEED_INVERTED,
+					!this.isAnimationSmoothingEnabled
+						|| prop === ReactiveProperties.IS_SPEED_INVERTED
+						|| prop === ReactiveProperties.CHARACTER,
 				),
 			)
 		}
@@ -298,6 +314,13 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 	}
 
 	initSettingsListeners() {
+		this.settings.bind(
+			SettingsSchemaKeys.CHARACTER,
+			this,
+			ReactiveProperties.CHARACTER,
+			Gio.SettingsBindFlags.DEFAULT,
+		)
+
 		this.settings.bind(
 			SettingsSchemaKeys.INVERT_SPEED,
 			this,

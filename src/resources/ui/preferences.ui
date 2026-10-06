@@ -46,6 +46,22 @@
                 <property name="title" translatable="yes">Character</property>
 
                 <child>
+                    <object class="AdwComboRow" id="character">
+                        <property name="title" translatable="yes">Character</property>
+                        <property name="model">
+                            <object class="GtkStringList">
+                                <!-- MUST USE THE SAME ORDER AS org.gnome.shell.extensions.runcat.Character -->
+                                <items>
+                                    <item translatable="yes">Cat</item>
+                                    <item translatable="yes">Dog</item>
+                                    <item translatable="yes">Monkey</item>
+                                </items>
+                            </object>
+                        </property>
+                    </object>
+                </child>
+
+                <child>
                     <object class="AdwSwitchRow" id="invert-speed">
                         <property name="title" translatable="yes">Invert speed</property>
                     </object>

@@ -64,6 +64,14 @@ export default class RunCatPreferences extends ExtensionPreferences {
 	}
 
 	#setupPage() {
+		// Character
+		const characterCombo = this.#builder!.get_object<Adw.ComboRow>(SettingsSchemaKeys.CHARACTER)
+
+		characterCombo.set_selected(this.#settings!.get_enum(SettingsSchemaKeys.CHARACTER))
+		characterCombo.connect('notify::selected', ({ selected }: Adw.ComboRow) => {
+			this.#settings!.set_enum(SettingsSchemaKeys.CHARACTER, selected)
+		})
+
 		// Idle Threshold
 		this.#settings!.bind(
 			SettingsSchemaKeys.IDLE_THRESHOLD,
@@ -129,6 +137,10 @@ export default class RunCatPreferences extends ExtensionPreferences {
 
 			// Custom system monitor command
 			this.#settings!.reset(SettingsSchemaKeys.CUSTOM_SYSTEM_MONITOR.COMMAND)
+
+			// Character
+			this.#settings!.reset(SettingsSchemaKeys.CHARACTER)
+			characterCombo.set_selected(this.#settings!.get_enum(SettingsSchemaKeys.CHARACTER))
 
 			// Displaying Items
 			this.#settings!.reset(SettingsSchemaKeys.DISPLAYING_ITEMS)
