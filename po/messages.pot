@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the gnome-runcat-extension package.
+# This file is distributed under the same license as the gnome-runpet-extension package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-runcat-extension 37\n"
+"Project-Id-Version: gnome-runpet-extension 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 16:23+0200\n"
+"POT-Creation-Date: 2026-10-06 18:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/indicator.ts:219
+#: src/indicator.ts:220
 msgid "Open System Monitor"
 msgstr ""
 
-#: src/indicator.ts:224
+#: src/indicator.ts:225
 #, javascript-format
 msgid "Execution of “%s” failed"
 msgstr ""
 
-#: src/indicator.ts:232
+#: src/indicator.ts:233
 msgid "Settings"
 msgstr ""
 
-#: src/indicator.ts:237
+#: src/indicator.ts:238
 msgid "Failed to open extension settings"
 msgstr ""
 
 #: src/prefs.ts:56
-msgid "RunCat Settings"
+msgid "RunPet Settings"
 msgstr ""
 
 #: src/prefs.ts:171
@@ -111,25 +111,25 @@ msgid "Reset preferences"
 msgstr ""
 
 #: src/resources/ui/preferences.ui:99
-msgid "Reset RunCat preferences to defaults"
+msgid "Reset RunPet preferences to defaults"
 msgstr ""
 
 #: src/resources/ui/preferences.ui:112
 msgid "Reset"
 msgstr ""
 
-#: src/resources/ui/preferences.ui:131
-msgid "The cat tells you the CPU usage by running speed"
+#: src/resources/ui/preferences.ui:132
+msgid "A cat, a dog or a monkey tells you the CPU usage by running speed"
 msgstr ""
 
-#: src/resources/ui/preferences.ui:135
-msgid "Visit RunCat's GitHub page"
+#: src/resources/ui/preferences.ui:136
+msgid "Visit RunPet's GitHub page"
 msgstr ""
 
-#: src/resources/ui/preferences.ui:145
+#: src/resources/ui/preferences.ui:146
 msgid "Visit Homepage"
 msgstr ""
 
-#: src/resources/ui/preferences.ui:149
-msgid "About RunCat"
+#: src/resources/ui/preferences.ui:150
+msgid "About RunPet"
 msgstr ""

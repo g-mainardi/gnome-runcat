@@ -1,3 +1,29 @@
+# RunPet
+
+**RunPet** is a fork of [RunCat for GNOME Shell](https://github.com/win0err/gnome-runcat)
+by Sergei Kolesnikov that lets you choose the running character: **cat**, **dog** or **monkey**
+(Settings → Character). Everything else works like RunCat. Please report issues about RunPet
+[here](https://github.com/g-mainardi/gnome-runcat/issues), not upstream.
+
+### Install RunPet
+
+Download `runpet@g-mainardi.github.io.shell-extension.zip` from the
+[latest release](https://github.com/g-mainardi/gnome-runcat/releases/latest), then:
+
+```bash
+gnome-extensions install --force runpet@g-mainardi.github.io.shell-extension.zip
+```
+
+Log out and back in (on X11 you can press <kbd>Alt</kbd>+<kbd>F2</kbd>, type `r` instead), then:
+
+```bash
+gnome-extensions enable runpet@g-mainardi.github.io
+```
+
+The original RunCat README follows.
+
+---
+
 <img height="165" src="src/resources/se.kolesnikov.runcat.svg" alt="RunCat for GNOME Shell Logo" align="right" />
 
 # RunCat for GNOME Shell
