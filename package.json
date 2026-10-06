@@ -1,5 +1,5 @@
 {
-  "name": "runcat",
+  "name": "runpet",
   "private": true,
   "scripts": {
     "build:compile": "tsc --project tsconfig.json",
@@ -9,7 +9,7 @@
     "test:typecheck": "tsc --project tsconfig.json --noEmit",
     "test": "npm run test:lint && npm run test:typecheck"
   },
-  "repository": "win0err/gnome-runcat",
+  "repository": "g-mainardi/gnome-runcat",
   "author": "Sergei Kolesnikov <sergei@kolesnikov.se>",
   "license": "GPL-3.0",
   "devDependencies": {

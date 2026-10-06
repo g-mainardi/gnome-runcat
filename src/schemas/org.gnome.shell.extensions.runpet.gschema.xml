@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<enum id="org.gnome.shell.extensions.runcat.DisplayingItems">
+	<enum id="org.gnome.shell.extensions.runpet.DisplayingItems">
 		<value value="0" nick="character-and-percentage" />
 		<value value="1" nick="percentage-only" />
 		<value value="2" nick="character-only" />
 	</enum>
 
-	<enum id="org.gnome.shell.extensions.runcat.Character">
+	<enum id="org.gnome.shell.extensions.runpet.Character">
 		<value value="0" nick="cat" />
 		<value value="1" nick="dog" />
 		<value value="2" nick="monkey" />
 	</enum>
 
 	<schema
-		id="org.gnome.shell.extensions.runcat"
-		path="/org/gnome/shell/extensions/runcat/"
+		id="org.gnome.shell.extensions.runpet"
+		path="/org/gnome/shell/extensions/runpet/"
 	>
 
-		<key name="character" enum="org.gnome.shell.extensions.runcat.Character">
+		<key name="character" enum="org.gnome.shell.extensions.runpet.Character">
 			<default>'cat'</default>
 			<summary>Character</summary>
 		</key>
@@ -27,7 +27,7 @@
 			<summary>Idle threshold</summary>
 		</key>
 
-		<key name="displaying-items" enum="org.gnome.shell.extensions.runcat.DisplayingItems">
+		<key name="displaying-items" enum="org.gnome.shell.extensions.runpet.DisplayingItems">
 			<default>'character-only'</default>
 			<summary>Displaying items</summary>
 		</key>

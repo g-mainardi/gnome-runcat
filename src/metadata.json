@@ -1,10 +1,18 @@
 {
-	"name": "RunCat",
-	"description": "The cat tells you the CPU usage by running speed",
-	"uuid": "runcat@kolesnikov.se",
-	"gettext-domain": "runcat@kolesnikov.se",
-	"settings-schema": "org.gnome.shell.extensions.runcat",
-	"shell-version": ["46", "47", "48", "49", "50", "51"],
-	"url": "https://github.com/win0err/gnome-runcat",
-	"version": 37
+	"name": "RunPet",
+	"description": "A cat, a dog or a monkey tells you the CPU usage by running speed. Fork of RunCat by Sergei Kolesnikov.",
+	"uuid": "runpet@g-mainardi.github.io",
+	"gettext-domain": "runpet@g-mainardi.github.io",
+	"settings-schema": "org.gnome.shell.extensions.runpet",
+	"shell-version": [
+		"46",
+		"47",
+		"48",
+		"49",
+		"50",
+		"51"
+	],
+	"url": "https://github.com/g-mainardi/gnome-runcat",
+	"version": 1,
+	"version-name": "1.0"
 }

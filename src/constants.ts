@@ -6,7 +6,7 @@ import type {
 } from './types'
 
 
-export const LOG_PREFIX = 'RuncatExtension'
+export const LOG_PREFIX = 'RunpetExtension'
 
 export const SYSTEM_MONITOR_COMMAND = 'gnome-system-monitor -r'
 
@@ -16,7 +16,7 @@ export const displayingItemNickToValue: Record<DisplayingItemNick, DisplayingIte
 	'character-only': { character: true, percentage: false },
 } as const
 
-// MUST USE THE SAME ORDER AS org.gnome.shell.extensions.runcat.Character
+// MUST USE THE SAME ORDER AS org.gnome.shell.extensions.runpet.Character
 export const CHARACTERS: Character[] = ['cat', 'dog', 'monkey']
 
 export const SettingsSchemaKeys = {

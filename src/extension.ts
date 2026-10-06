@@ -10,7 +10,7 @@ export default class RunCatExtension extends Extension {
 
 	enable() {
 		this.#indicator = new RunCatIndicator(this)
-		MainPanel.addToStatusArea('runcat-indicator', this.#indicator)
+		MainPanel.addToStatusArea('runpet-indicator', this.#indicator)
 	}
 
 	disable() {

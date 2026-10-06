@@ -49,6 +49,7 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 
 	static {
 		GObject.registerClass({
+			GTypeName: 'RunPetIndicator',
 			Properties: {
 				character: GObject.ParamSpec.string(
 					'character',
@@ -115,7 +116,7 @@ export default class RunCatIndicator extends PanelMenu.Button implements RunCatI
 	displayingItemsHandlerId!: number
 
 	constructor(extension: Extension) {
-		super(0.5, 'RunCat', false)
+		super(0.5, 'RunPet', false)
 
 		this.extension = extension
 		this.settings = extension.getSettings()

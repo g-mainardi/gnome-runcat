@@ -53,7 +53,7 @@ export default class RunCatPreferences extends ExtensionPreferences {
 
 		this.#window.add(page)
 
-		this.#window.title = _('RunCat Settings')
+		this.#window.title = _('RunPet Settings')
 
 		// force fields to be garbage collected on window close
 		this.#window.connect('close-request', () => {
